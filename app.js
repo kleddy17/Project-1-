@@ -61,11 +61,15 @@ const myQuestions = [
         // also keep track of my rightAnswers, then add score++?
         // Invoke this at the start()?
 const keepScore = () => {
-    for(let i =0; myQuestions.length; i++) {
-        let rightAnswer = myQuestions[i].answer;
+    for(let i =0; myQuestions.answer.length; i++) {
+       // make an array of right answers and then 
+        //compare them with clicked choice?
+        const rightAnswers = []
+
     
-    }
-    keepScore()
+//     }
+//     keepScore()
+}
 }
 const getQuestion =  () =>{ 
         // making my radio buttons from myQuestions array
@@ -76,6 +80,11 @@ const getQuestion =  () =>{
         // it.
     let question = myQuestions[i].question;
     document.write(question);
+        // this is writing both questions on the new page
+        // how do i stop the function between each loop
+        // of myQuestions   
+    
+
         // going through the array of questions again and grabbing
         // the choices value
         // making a variable to store our choices, called options. 
@@ -87,18 +96,25 @@ const getQuestion =  () =>{
         // Googled the rest of this. I have never used radio buttons
         // before so this is the only way I could get them to work. 
     const name = "radio" + i;
+        // This is a little confusing to me. I think it is saying
+        // for every choice in options, create an input element,
+        // stored in the radioEle variable, which has three diffrent 
+        // properties, and then append that new element to the body. 
     for(const opt in options) {
     const radioEle = document.createElement("input");
         radioEle.type= "radio";
         radioEle.value = options[opt];
         radioEle.name = name;
     document.body.appendChild(radioEle);
-    const label = document.createElement("Label");
-          label.innerHTML = options[opt];
-    document.body.appendChild(label);
+
+
+    const answers = document.createElement("Answers");
+          answers.innerHTML = options[opt];
+    document.body.appendChild(answers);
+        //this is for spacing
     document.body.appendChild(document.createElement("br"));
-        }
-        document.body.appendChild(document.createElement("br"));  
+    }   //this is for spacing
+    document.body.appendChild(document.createElement("br"));  
       }
       }      
 
