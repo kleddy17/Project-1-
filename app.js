@@ -33,7 +33,9 @@ let rightAnswers = 0;
         // a variable for how many wrong answers the player gets
 let wrongAnswers = 0;
 
-        // let currentQuestion = myQuestions[i].question++;
+// let totalQuestions = myQuestions.length;
+
+let currentQuestion = 0;
 
 
         //---FUNCTIONS-----//
@@ -60,21 +62,24 @@ const myQuestions = [
         // Trying to make a keepScore function, thinking I could 
         // also keep track of my rightAnswers, then add score++?
         // Invoke this at the start()?
-const keepScore = () => {
-    for(let i =0; myQuestions.answer.length; i++) {
-       // make an array of right answers and then 
-        //compare them with clicked choice?
-        const rightAnswers = []
+// const keepScore = () => {
+//     for(let i =0; myQuestions.answer.length; i++) {
+//        // make an array of right answers and then 
+//         //compare them with clicked choice?
+//         const rightAnswers = []
 
     
-//     }
-//     keepScore()
-}
-}
+// //     }
+// //     keepScore()
+// }
+// }
+
 const getQuestion =  () =>{ 
+    const randomNumber = Math.floor(Math.random() * myQuestions.length);
+
         // making my radio buttons from myQuestions array
         // for loop to go through myQuestions array
-    for(let i =0; myQuestions.length; i++) {
+        // for(let i =0; myQuestions.length; i++) {
         // saying for every object in my question array
         // pick out the ones labeled question and write
         // it.

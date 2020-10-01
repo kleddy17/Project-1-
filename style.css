@@ -9,5 +9,14 @@ section {
 
 .buttons {
     text-align: center;
-    
+
+}
+
+#test { 
+    text-align: right;
+    display: block;
+    width: 200px;
+    margin: 50px auto;
+    border: 10px solid white;
+
 }
