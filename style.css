@@ -12,7 +12,7 @@ section {
 
 }
 
-#test { 
+/* #test { 
     text-align: right;
     display: block;
     width: 200px;
@@ -20,8 +20,18 @@ section {
     border: 10px solid white;
     color: black;
 
-}
+} */
 
 .class {
     color: black;
+}
+
+
+.ques {
+    color:purple;
+}
+
+.choice {
+    list-style-type: none;
+    color: purple;
 }

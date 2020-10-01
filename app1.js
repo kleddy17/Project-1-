@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextButton = document.querySelector("#next-btn");
     nextButton.addEventListener("click", () => {
         getQuestion();
+        keepScore();
     })
 }
 );
@@ -31,6 +32,7 @@ const start = () => {
 let currentQuestion = 0;
 let score = 0;
 getQuestion();
+keepScore();
 }
 
 // const nextQuestion = () => {
@@ -47,12 +49,12 @@ getQuestion();
 // }
 
 const myQuestions = [
-    {   question:"1. What TV show statue lives here?",
+    {   question:"What TV show statue lives here?",
         choices:["Bewitched", "Elvira", "Sabrina, The Teenage Witch"],
-        answer:1,
+        answer:0,
         
     },
-    {   question:"2. In what year did the Salem Witch Trials take place?",
+    {   question:"In what year did the Salem Witch Trials take place?",
         choices:["1692", "1776", "1806"],
         answer:"1692"
     }
@@ -83,14 +85,19 @@ const getQuestion = () => {
 
 
 const keepScore = () => {
-    const getInputValue = document.querySelectorAll('input[type="text"]');
+    let score = 0;
+    const getInputValue = document.querySelectorAll("#compareAnswer");
+    console.log(getInputValue);
         if (getInputValue === myQuestions.answer) {
-        score++
-        currentQuestion++
+            score++
+            // currentQuestion++
         }else{ 
-        currentQuestion++
-        }
+            // currentQuestion++
+     }
+console.log(score)
 }
+
+
 
 
 const endGame = () => {
