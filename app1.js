@@ -60,6 +60,7 @@ const myQuestions = [
 
 const getQuestion = () => {
     let randomElement = Math.floor(Math.random() * myQuestions.length);
+    
     let currentQuestion = myQuestions.splice(randomElement, 1)
     console.log("currentQuestion:", currentQuestion);
     console.log("currentQuestion:", currentQuestion[0])
@@ -72,13 +73,12 @@ const getQuestion = () => {
     //make sure we put under image, append under image
     document.body.appendChild(test);
     test.appendChild(questions);
-    questions.innerHTML += `<h1 class="ques">${myQuestions[randomElement].question}</h1>`
-
-    for(let i = 0; i<myQuestions[randomElement].choices.length; i++) {
-        let li=document.createElement('li');        
-        questions.appendChild(li);
-        li.innerHTML += `<h3 class="choice'>,<br>${myQuestions[randomElement].choices[i]}</br></h3>`       
-    }     
+    questions.innerHTML += `<h1 class="ques">${currentQuestion[0].question}</h1>`
+        for(let i = 0; i<currentQuestion[0].choices.length; i++) {
+            let li=document.createElement('li'); 
+            li.innerHTML = `<h3 class="choice">,<br>${currentQuestion[0].choices[i]}</br></h3>`       
+            questions.appendChild(li);
+    } 
 }
 
 
