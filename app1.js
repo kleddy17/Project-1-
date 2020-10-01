@@ -9,11 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
         h1.style.display="none";
         start();
     });
-
-    // const nextButton = document.querySelector("#next-btn");
-    // nextButton.addEventListener("click", getQuestion())
-
-
+    const nextButton = document.querySelector("#next-btn");
+    nextButton.addEventListener("click", () => {
+        getQuestion();
+    })
 }
 );
 
@@ -60,13 +59,11 @@ const myQuestions = [
     ];
 
 const getQuestion = () => {
-    
-    //trying to get a random question to show from array
-    //what happens when the next button is clicked
-    //need to splice() every "used" question from array
-    const randomElement = Math.floor(Math.random() * myQuestions.length);
-    console.log(randomElement,myQuestions[randomElement]);
-
+    let randomElement = Math.floor(Math.random() * myQuestions.length);
+    let currentQuestion = myQuestions.splice(randomElement, 1)
+    console.log("currentQuestion:", currentQuestion);
+    console.log("currentQuestion:", currentQuestion[0])
+    console.log(randomElement)
 
     const test=document.createElement('section');
     test.setAttribute('id','test');
@@ -75,13 +72,12 @@ const getQuestion = () => {
     //make sure we put under image, append under image
     document.body.appendChild(test);
     test.appendChild(questions);
-    questions.innerHTML= `<h1 style="color: pink;", "border: 10px solid white;">${myQuestions[0].question}</h1>`
+    questions.innerHTML += `<h1 class="ques">${myQuestions[randomElement].question}</h1>`
 
-
-    for(let i = 0; i<myQuestions[0].choices.length; i++) {
+    for(let i = 0; i<myQuestions[randomElement].choices.length; i++) {
         let li=document.createElement('li');        
         questions.appendChild(li);
-        li.innerHTML += `<h3 style="color: white;">,<br>${myQuestions[0].choices[i]}</br></h3>`       
+        li.innerHTML += `<h3 class="choice'>,<br>${myQuestions[randomElement].choices[i]}</br></h3>`       
     }     
 }
 
