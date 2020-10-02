@@ -15,21 +15,21 @@ document.addEventListener("DOMContentLoaded", () => {
         removeQuesAns.style.display="none";
         // keepScore();
         getQuestion();
+        // getInputValue();
     });
 
-    // const submitButton = document.querySelector("#userInput")
-    // submitButton.addEventListener("click", () => {
-    //     // getQuestion();
-    //     keepScore();
-    // })
+    const submitButton = document.querySelector("#button")
+    submitButton.addEventListener("click", () => {
+        getInputValue();
+    })
 }
 );
 
                 /////VARIABLES/////
 
-let score 
+let score = 0;
 let currentQuestion 
-let questionAsk
+let questionAsk = 0;
 let totalQuestion 
 let rightAnswer
 
@@ -38,24 +38,11 @@ let rightAnswer
                 /////FUNCTIONS/////
 
 const start = () => {
-let currentQuestion = 0;
-let score = 0;
+    // let questionAsk = 0;
+    // let score = 0;
 getQuestion();
-getInputValue();
+    // getInputValue();
 }
-
-// const nextQuestion = () => {
-//     // 1. How to make a click button for next question/add event listener
-
-//     // 2. I want to generate new question
-//     // getQuestion()
-    
-//     // 3. I want to keep track of what question we are on
-//     currentQuestion++
-
-//     // 4. I want to add to the score if there is a right answer
-//     // score++
-// }
 
 const myQuestions = [
     {   question:"What TV show statue lives here?",
@@ -81,9 +68,6 @@ const myQuestions = [
         choices: ["Porter","Putnam","Ryan"],
         answer: "Putnam"
     },
-
-
-
     ];
 
 const getQuestion = () => {
@@ -91,24 +75,27 @@ const getQuestion = () => {
     // take used question from the array. 
 let randomElement = Math.floor(Math.random() * myQuestions.length);
 let currentQuestion = myQuestions.splice(randomElement, 1)
-    console.log("currentQuestion:", currentQuestion);
-    console.log("currentQuestion:", currentQuestion[0])
-    console.log(randomElement)
+    // console.log("currentQuestion:", currentQuestion);
+    // console.log("currentQuestion:", currentQuestion[0])
+    // console.log(randomElement)
 
 const test=document.createElement('section');
 test.setAttribute('id','test');
-    
 const questions = document.createElement('ul');
     // Make sure we put under image, append under image.
 document.body.appendChild(test);
 test.appendChild(questions);
 questions.innerHTML += `<h1 class="ques">${currentQuestion[0].question}</h1>`
     for(let i = 0; i<currentQuestion[0].choices.length; i++) {
-        let li=document.createElement('li');
-        li.innerHTML = `<h3 class="option">, <br>${currentQuestion[0].choices[i]}</br></h3>`
-        questions.appendChild(li);
-            
-    } 
+         let li=document.createElement('li');
+          li.innerHTML = `<h3 class="option">, <br>${currentQuestion[0].choices[i]}</br></h3>`
+           questions.appendChild(li);
+    }
+// const createAnswer = document.createElement('div')
+// test.appendChild(createAnswer);
+// createAnswer.innerHTML = `${currentQuestion[0].answer}`
+
+
 }
 
 
@@ -116,11 +103,19 @@ const getInputValue = () => {
 let questionAsk = 0;
 let score = 0;
 const userInput = document.querySelector("#myInput").value;
-    if (userInput === myQuestions.answer){
-        score++
-        questionAsk++
+// const textInsideLi = document.getElementsByTagName('li')[3].innerHTML;
+if (userInput === myQuestions[0].answer.question){
+        // score++
+        // questionAsk++
+        alert(`Correct answer is : `)
+    } else {
+        console.log("Wrong")
     }
-
+   console.log(score++)
+   console.log(userInput)
+   
+   
+   
 }
 
 
