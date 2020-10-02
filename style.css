@@ -12,15 +12,10 @@ section {
 
 }
 
-/* #test { 
-    text-align: right;
-    display: block;
-    width: 200px;
-    margin: 50px auto;
-    border: 10px solid white;
-    color: black;
+#welcome-page{
+    text-align: center;
+}
 
-} */
 
 .class {
     color: black;
@@ -28,10 +23,15 @@ section {
 
 
 .ques {
-    color:purple;
+    color: black;
+    list-style-type: none;
 }
 
-.choice {
-    list-style-type: none;
-    color: purple;
+.option {
+    list-style: none;
+    color: black;
+}
+
+#compareAnswer{
+    text-align: center;
 }
