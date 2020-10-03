@@ -2,6 +2,7 @@
 
 
 document.addEventListener("DOMContentLoaded", () => {
+    // 
     const enterIfYouDare = document.querySelector("#btn");
     enterIfYouDare.addEventListener("click", ()=> {
         enterIfYouDare.style.display= "none";
@@ -11,20 +12,17 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     const nextButton = document.querySelector("#next-btn");
     nextButton.addEventListener("click", () => {
-        const removeQuesAns = document.querySelector("#test")
-        while(removeQuesAns.firstChild){
-            removeQuesAns.removeChild(removeQuesAns.firstchild)
-        }
         getQuestion();
          
     });
 
     const submitButton = document.querySelector("#button")
     submitButton.addEventListener("click", () => {
-        // const removeQuesAns = document.querySelector("#test")
-        // removeQuesAns.style.display="none";
-        endGame();
-    })
+        const section = document.querySelectorAll("section")
+        section.style.display="none";
+       getInputValue();
+       endGame();
+    })          
 }
 );
 
@@ -76,18 +74,20 @@ const getQuestion = () => {
     // take used question from the array. 
     randomElement = Math.floor(Math.random() * myQuestions.length);
     currentQuestion = myQuestions.splice(randomElement, 1)
-    // const removeQuesAns = document.querySelector("#test")
-    //     while(removeQuesAns.firstChild){
-    //         removeQuesAns.removeChild(removeQuesAns.firstchild)
-    //     }
-    // console.log("currentQuestion:", currentQuestion);
-    // console.log("currentQuestion:", currentQuestion[0])
-    // console.log(randomElement)
+   
+    console.log("currentQuestion:", currentQuestion);
+    console.log("currentQuestion:", currentQuestion[0])
+    console.log(randomElement)
+    // I am creating the "test" for each question. 
     const test=document.createElement('section');
     test.setAttribute('id','test');
     const questions = document.createElement('ul');
+    // Taking the section I created with the id of "test" and appending it to the body
     document.body.appendChild(test);
+     // Taking the ul "questions" that I created and appended it to
+    // the section I created with the id of  "test"
     test.appendChild(questions);
+    // I am changing the innerHTML to the currentQuestion that I created.
     questions.innerHTML += `<h1 class="ques">${currentQuestion[0].question}</h1>`
     for(let i = 0; i<currentQuestion[0].choices.length; i++) {
         let li=document.createElement('li');
@@ -102,6 +102,7 @@ const getInputValue = () => {
     if (userInput === currentQuestion[0].answer){ 
         score++
         questionAsk++
+    console.log ("Right")
     } else {
     console.log("wrong")
     }   
@@ -113,5 +114,13 @@ const endGame = () => {
         console.log("You are a powerful witch!")
     }
 }
+
+// const test = () => {
+//     document.querySelectorAll("#test")
+//      while(test.firstChild){
+//         test.removeChild(test.firstchild)
+
+// }
+// }
 
 
