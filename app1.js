@@ -12,36 +12,37 @@ document.addEventListener("DOMContentLoaded", () => {
     const nextButton = document.querySelector("#next-btn");
     nextButton.addEventListener("click", () => {
         const removeQuesAns = document.querySelector("#test")
-        removeQuesAns.style.display="none";
-        // keepScore();
+        while(removeQuesAns.firstChild){
+            removeQuesAns.removeChild(removeQuesAns.firstchild)
+        }
         getQuestion();
-        // getInputValue();
+         
     });
 
     const submitButton = document.querySelector("#button")
     submitButton.addEventListener("click", () => {
-        // getQuestion();
+        // const removeQuesAns = document.querySelector("#test")
+        // removeQuesAns.style.display="none";
+        endGame();
     })
 }
 );
 
                 /////VARIABLES/////
 
-let score = 0;
+let score=0;
 let currentQuestion 
-let questionAsk = 0;
+let questionAsk 
 let totalQuestion 
 let rightAnswer
+let randomElement
 
 
 
                 /////FUNCTIONS/////
 
-const start = () => {
-    // let questionAsk = 0;
-    // let score = 0;
-getQuestion();
-    // getInputValue();
+const start = () => {    
+    getQuestion();   
 }
 
 const myQuestions = [
@@ -73,61 +74,44 @@ const myQuestions = [
 const getQuestion = () => {
     // Making the function choose a random question, then using splice to 
     // take used question from the array. 
-let randomElement = Math.floor(Math.random() * myQuestions.length);
-let currentQuestion = myQuestions.splice(randomElement, 1)
+    randomElement = Math.floor(Math.random() * myQuestions.length);
+    currentQuestion = myQuestions.splice(randomElement, 1)
+    // const removeQuesAns = document.querySelector("#test")
+    //     while(removeQuesAns.firstChild){
+    //         removeQuesAns.removeChild(removeQuesAns.firstchild)
+    //     }
     // console.log("currentQuestion:", currentQuestion);
-    console.log("currentQuestion:", currentQuestion[0])
+    // console.log("currentQuestion:", currentQuestion[0])
     // console.log(randomElement)
-
-const test=document.createElement('section');
-test.setAttribute('id','test');
-const questions = document.createElement('ul');
-    // Make sure we put under image, append under image.
-document.body.appendChild(test);
-test.appendChild(questions);
-questions.innerHTML += `<h1 class="ques">${currentQuestion[0].question}</h1>`
+    const test=document.createElement('section');
+    test.setAttribute('id','test');
+    const questions = document.createElement('ul');
+    document.body.appendChild(test);
+    test.appendChild(questions);
+    questions.innerHTML += `<h1 class="ques">${currentQuestion[0].question}</h1>`
     for(let i = 0; i<currentQuestion[0].choices.length; i++) {
-         let li=document.createElement('li');
-          li.innerHTML = `<h3 class="option">, <br>${currentQuestion[0].choices[i]}</br></h3>`
-           questions.appendChild(li);
+        let li=document.createElement('li');
+        li.innerHTML = `<h3 class="option">, <br>${currentQuestion[0].choices[i]}</br></h3>`
+        questions.appendChild(li);
     }
-// const createAnswer = document.createElement('div')
-// test.appendChild(createAnswer);
-// createAnswer.innerHTML = `${currentQuestion[0].answer}`
-// const userInput = document.querySelector("#myInput").value;
-// if (userInput === currentQuestion[0].answer){  
-//     score++
-//     console.log(score)
-// }
-    
-
-
+ 
 }
   
-
 const getInputValue = () => {
-let questionAsk = 0;
-let score = 0;
-const userInput = document.querySelector("#myInput").value;
-if (userInput === currentQuestion[0].answer){
+    const userInput = document.querySelector("#myInput").value;
+    if (userInput === currentQuestion[0].answer){ 
         score++
         questionAsk++
     } else {
-        console.log("Wrong")
-    }
-   console.log(score++)
-   console.log(userInput)
- 
-}
-
-
-
-
-
+    console.log("wrong")
+    }   
+    console.log(score++) 
+} 
 
 const endGame = () => {
     if (score === 5) {
         console.log("You are a powerful witch!")
     }
 }
+
 
