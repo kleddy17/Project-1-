@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const submitButton = document.querySelector("#button")
     submitButton.addEventListener("click", () => {
-        getInputValue();
+        // getQuestion();
     })
 }
 );
@@ -76,7 +76,7 @@ const getQuestion = () => {
 let randomElement = Math.floor(Math.random() * myQuestions.length);
 let currentQuestion = myQuestions.splice(randomElement, 1)
     // console.log("currentQuestion:", currentQuestion);
-    // console.log("currentQuestion:", currentQuestion[0])
+    console.log("currentQuestion:", currentQuestion[0])
     // console.log(randomElement)
 
 const test=document.createElement('section');
@@ -94,29 +94,33 @@ questions.innerHTML += `<h1 class="ques">${currentQuestion[0].question}</h1>`
 // const createAnswer = document.createElement('div')
 // test.appendChild(createAnswer);
 // createAnswer.innerHTML = `${currentQuestion[0].answer}`
+// const userInput = document.querySelector("#myInput").value;
+// if (userInput === currentQuestion[0].answer){  
+//     score++
+//     console.log(score)
+// }
+    
 
 
 }
-
+  
 
 const getInputValue = () => {
 let questionAsk = 0;
 let score = 0;
 const userInput = document.querySelector("#myInput").value;
-// const textInsideLi = document.getElementsByTagName('li')[3].innerHTML;
-if (userInput === myQuestions[0].answer.question){
-        // score++
-        // questionAsk++
-        alert(`Correct answer is : `)
+if (userInput === currentQuestion[0].answer){
+        score++
+        questionAsk++
     } else {
         console.log("Wrong")
     }
    console.log(score++)
    console.log(userInput)
-   
-   
-   
+ 
 }
+
+
 
 
 
