@@ -1,10 +1,12 @@
 body {
-    background: orange;
+    background-image: url(https://s3.envato.com/files/582a4dfc-22f1-4e58-9936-fc15319adcea/inline_image_preview.jpg);
+    background-size: cover;
 }
 
 section {
     text-align: center;
     height: 100px;
+    list-style:none;
 }
 
 .buttons {
@@ -18,20 +20,68 @@ section {
 
 
 .class {
-    color: black;
+    color: rgb(203, 0, 255);
 }
 
 
+ul{
+    list-style: none;
+}
+
 .ques {
-    color: black;
-    list-style-type: none;
+    color: white;
+    list-style: none;
+    margin:0;
+    padding:0
 }
 
 .option {
     list-style: none;
-    color: black;
+    color:white;
+    font-family: 'Sansita Swashed', cursive;
+    
 }
 
 #compareAnswer{
+    text-align: center;
+}
+
+#button{
+    background-color: orange; color: black;
+    font-size:20px;
+    font-family: 'Sansita Swashed', cursive;
+    margin:10px;
+    float: right;
+}
+#myInput{
+    padding: 10px;
+    margin: 10px;
+    float: right;
+    
+}
+
+#next-btn {
+    background-color:orange; color: black;
+    font-size:20px;
+    font-family: 'Sansita Swashed', cursive;
+    text-align: center;
+    margin: 10px
+}
+
+#btn{
+    background-color: white;
+    font-family: 'Sansita Swashed', cursive;
+    
+}
+
+h1{
+    color:white;
+    font-family: 'Sansita Swashed', cursive;
+}
+
+
+.win{
+    color: white;
+    size: 40px;
     text-align: center;
 }

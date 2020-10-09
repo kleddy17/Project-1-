@@ -2,46 +2,58 @@
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    // 
+    // This is the event listener for my enter the game button, once you
+    // click then the start function runs, thus doing the getQuestion function
     const enterIfYouDare = document.querySelector("#btn");
     enterIfYouDare.addEventListener("click", ()=> {
+        // I am making the start button disappear when you click
+        // by setting the style display to none, also doing the same with my h1.
         enterIfYouDare.style.display= "none";
         const h1 = document.querySelector("h1");
         h1.style.display="none";
-        start();
+        getQuestion();
     });
+    
+    // This is the event listener for my next button, it grabs a
+    // new question every time it is clicked. 
     const nextButton = document.querySelector("#next-btn");
     nextButton.addEventListener("click", () => {
+        const test =document.querySelector("#test");
+        test.remove();
         getQuestion();
-         
+        console.log("#test", test)  
     });
 
+    // This is where we get the user data with the event listener on the submit
+    // button. I was trying to get the submit button to take away 
+    // the currentQuestion. I have not figured that out yet. 
     const submitButton = document.querySelector("#button")
     submitButton.addEventListener("click", () => {
-        const section = document.querySelectorAll("section")
-        section.style.display="none";
-       getInputValue();
-       endGame();
+        getInputValue();
+        // This clears the textfield after I click the submit button
+        myInput.value="";
     })          
 }
 );
 
                 /////VARIABLES/////
-
+// variable to keep score of the game
 let score=0;
+// variable to be able to use currentQuestion in more the one function 
 let currentQuestion 
-let questionAsk 
+//  variable to keep track of how many questions we asked, to keep track of the game and how to end it 
 let totalQuestion 
-let rightAnswer
+//  variable used to generate  random question in they array of objects, and then splice out used quesiton
 let randomElement
 
+let questionAsk
 
 
                 /////FUNCTIONS/////
 
-const start = () => {    
-    getQuestion();   
-}
+// const start = () => {    
+//     getQuestion();   
+// }
 
 const myQuestions = [
     {   question:"What TV show statue lives here?",
@@ -67,17 +79,18 @@ const myQuestions = [
         choices: ["Porter","Putnam","Ryan"],
         answer: "Putnam"
     },
+    
     ];
-
+    
 const getQuestion = () => {
     // Making the function choose a random question, then using splice to 
     // take used question from the array. 
     randomElement = Math.floor(Math.random() * myQuestions.length);
     currentQuestion = myQuestions.splice(randomElement, 1)
-   
+    // currentQuestion = myQuestions.join('');
     console.log("currentQuestion:", currentQuestion);
     console.log("currentQuestion:", currentQuestion[0])
-    console.log(randomElement)
+    // console.log(randomElement)
     // I am creating the "test" for each question. 
     const test=document.createElement('section');
     test.setAttribute('id','test');
@@ -94,33 +107,36 @@ const getQuestion = () => {
         li.innerHTML = `<h3 class="option">, <br>${currentQuestion[0].choices[i]}</br></h3>`
         questions.appendChild(li);
     }
- 
 }
   
 const getInputValue = () => {
+    // This is where I am getting the user input from my textfield box
     const userInput = document.querySelector("#myInput").value;
+    // I am comparing what the user types into the textfield with what the
+    // current question's answer is. Then I am adding to the score. This function
+    // is connected to the submit button. 
     if (userInput === currentQuestion[0].answer){ 
         score++
-        questionAsk++
-    console.log ("Right")
-    } else {
-    console.log("wrong")
-    }   
-    console.log(score++) 
+        // const scoreMessage= document.createElement("p");
+        // scoreMessage.innerHTML = `<p class ="right"> "You scored one point!</p>`
+        // scoreMessage.style.display="flex";   
+    } 
+    if (score === 5) {
+        const popUp = document.createElement("div");
+        popUp.setAttribute('id', 'popUp');
+        document.body.appendChild(popUp);
+        const message= document.createElement("p");
+        message.innerHTML = `<p class = "win">"You got all the questions right! You are a powerful witch!</p>`
+        popUp.appendChild(message);
+        popUp.style.display="flex";
+        test.remove();    
+    }  
+    console.log(score)    
 } 
 
-const endGame = () => {
-    if (score === 5) {
-        console.log("You are a powerful witch!")
-    }
-}
 
-// const test = () => {
-//     document.querySelectorAll("#test")
-//      while(test.firstChild){
-//         test.removeChild(test.firstchild)
 
-// }
-// }
+
+
 
 
