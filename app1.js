@@ -25,10 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // the currentQuestion. I have not figured that out yet. 
     const submitButton = document.querySelector("#button")
     submitButton.addEventListener("click", () => {
-        getInputValue();
+        //This removes the current questions and retrieves a new one. 
+        test.remove();
+        getQuestion();
         // This clears the textfield after I click the submit button
         myInput.value = "";
         checkQuestion();
+        checkWinner();
 
     })
 
@@ -57,24 +60,24 @@ const myQuestions = [
     {
         question: "How many convicted witches were hanged?",
         choices: ["19", "107", "45", "20"],
-        answer: "19"
+        answer: "19",
     },
 
     {
         question: "Members of which Salem Village family did much of the accusing?",
         choices: ["Porter", "Putnam", "Ryan"],
-        answer: "Putnam"
+        answer: "Putnam",
     },
 
     {
         question: " Most of the accused in the Salem Witch Trials lived in what present day town?",
         choices: ["Peabody", "Topsfield", "Danvers", "Beverly"],
-        answer: "Peabody"
+        answer: "Peabody",
     },
     {
         question: "Samuel Skelton acted as which important figure for Salem ?",
         choices: ["Pastor for the first church", "First appointed governor", "Witch trials judge"],
-        answer: "Pastor for the first church"
+        answer: "Pastor for the first church",
     },
     ];
 
@@ -82,9 +85,10 @@ const myQuestions = [
 
 let score = 0
 let newArr = []
-let currentQuestion=0 
-let totalQuestion=7
-let player=2
+let askedQuestion=0 
+let totalQuestion=6
+let winningScore = 6
+
 
 /////FUNCTIONS/////
 
@@ -99,8 +103,6 @@ const getQuestion = () => {
     const userInput = document.querySelector("#myInput")
     userInput.setAttribute('answer', currentQuestion[0].answer);
     newArr.push(currentQuestion[0].answer)
-
-
     // I am creating the "test" for each question. 
     const test = document.createElement('section');
     test.setAttribute('id', 'test');
@@ -137,19 +139,23 @@ const getInputValue = () => {
         score++  
         console.log("correct")
     } 
-    //This removes the current questions and retrieves a new one. 
-    test.remove()
-    getQuestion()
+    
 }
 
 const checkQuestion = () => {
-    currentQuestion++
-    console.log(currentQuestion)
-    if(currentQuestion === 7) {
-        console.log("Game over!")
+    askedQuestion++
+    if(askedQuestion >= totalQuestion) {
+        test.remove();
+        let gameOver = document.querySelector("#game-over")
+        gameOver.innerHTML = `<h3 class="game-over"> Game Over!</h3>`
     }
-
-
+}
+const checkWinner = () => {
+    if(score >= winningScore) {
+        console.log(score)
+        let result = document.querySelector("#result")
+        result.innerHTML = `<h3 class="result"> You won!</h3>`
+    }
 }
 
 

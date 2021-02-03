@@ -21,9 +21,6 @@ body {
 }
 
 
-
-
-
 ul{
     display:flex;
     flex-direction: column;
@@ -53,8 +50,10 @@ ul{
     flex-direction: row;
     justify-content: center;
     margin-top: 34em;
+    margin-left: 41em;
     z-index: 1;
     position: absolute;
+    border: 10px solid orange;
 }
 
 
@@ -92,6 +91,10 @@ h1{
     
 }
 
-#question-box{
-    color: red;
+.game-over{
+    color:white
+}
+
+.result {
+    color:white;
 }
