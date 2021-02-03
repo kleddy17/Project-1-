@@ -1,13 +1,15 @@
 body {
-    background-image: url(https://s3.envato.com/files/582a4dfc-22f1-4e58-9936-fc15319adcea/inline_image_preview.jpg);
-    background-size: cover;
+    background-image: url("https://images.unsplash.com/photo-1505635552518-3448ff116af3?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8c3Bvb2t5fGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+    align-items: center;
+    width:100vw;
 }
 
-section {
-    text-align: center;
-    height: 100px;
-    list-style:none;
-}
 
 .buttons {
     text-align: center;
@@ -19,26 +21,26 @@ section {
 }
 
 
-.class {
-    color: rgb(203, 0, 255);
-}
+
 
 
 ul{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: center;
     list-style: none;
+
+    z-index: -1
 }
 
-.ques {
-    color: white;
-    list-style: none;
-    margin:0;
-    padding:0
-}
+
 
 .option {
     list-style: none;
     color:white;
     font-family: 'Sansita Swashed', cursive;
+
     
 }
 
@@ -46,37 +48,33 @@ ul{
     text-align: center;
 }
 
-#button{
-    background-color: orange; color: black;
-    font-size:20px;
-    font-family: 'Sansita Swashed', cursive;
-    margin:10px;
-    float: right;
-}
-#myInput{
-    padding: 10px;
-    margin: 10px;
-    float: right;
-    
+.button-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 34em;
+    z-index: 1;
+    position: absolute;
 }
 
-#next-btn {
-    background-color:orange; color: black;
-    font-size:20px;
-    font-family: 'Sansita Swashed', cursive;
-    text-align: center;
-    margin: 10px
-}
 
-#btn{
-    background-color: white;
+#btn    {
+    background-image: linear-gradient(to right top, #7a46a7, #4f2f5e, #5c3863, #684168, #734b6d);
     font-family: 'Sansita Swashed', cursive;
-    
+    font-size: 2.5em;
+    /* border: 4px solid aquamarine    */
 }
 
 h1{
     color:white;
     font-family: 'Sansita Swashed', cursive;
+    font-size: 2em;
+   
+    
+}
+
+.welcome{
+    font-size: 2.5em;
 }
 
 
@@ -84,4 +82,16 @@ h1{
     color: white;
     size: 40px;
     text-align: center;
+    border: 4px solid blueviolet
+    
+}
+
+#correctAnswer{
+    color:white;
+    border: 4px solid blueviolet
+    
+}
+
+#question-box{
+    color: red;
 }
