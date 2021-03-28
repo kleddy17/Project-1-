@@ -19,3 +19,9 @@ Approach:
 
 ## HOME PAGE
 ![swt home](https://user-images.githubusercontent.com/69171194/112760320-7ab55c00-8fc4-11eb-955c-94db2c3c1260.png)
+
+## RANDOM QUESTION 1
+![swt-1](https://user-images.githubusercontent.com/69171194/112760516-3b3b3f80-8fc5-11eb-924d-837f26975d7a.png)
+
+## RANDOM QUESTION 2
+<img width="1005" alt="swt-2" src="https://user-images.githubusercontent.com/69171194/112760571-776ea000-8fc5-11eb-8279-d34c12679ee2.png">
