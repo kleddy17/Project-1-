@@ -25,3 +25,14 @@ Approach:
 
 ## RANDOM QUESTION 2
 <img width="1005" alt="swt-2" src="https://user-images.githubusercontent.com/69171194/112760571-776ea000-8fc5-11eb-8279-d34c12679ee2.png">
+
+## RANDOM QUESTION 3
+![swt-3](https://user-images.githubusercontent.com/69171194/112760677-ddf3be00-8fc5-11eb-9f2f-af30212dd75b.png)
+
+## RANDOM QUESTION 4
+
+<img width="1003" alt="swt-4" src="https://user-images.githubusercontent.com/69171194/112762075-f49d1380-8fcb-11eb-9fa0-bdfd3b7bc1f0.png">
+
+
+# GAME OVER
+<img width="992" alt="swt-5" src="https://user-images.githubusercontent.com/69171194/112762150-39c14580-8fcc-11eb-97f6-4c05db16212e.png">
